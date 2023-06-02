@@ -1,43 +1,61 @@
 import "./App.css";
-import logo from "./logo.png";
+import Mockman from "mockman-js";
+import { Routes, Route } from 'react-router-dom'
+import Login from "./pages/Login/Login";
+import Signup from "./pages/Signup/Signup";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import ProductPage from "./pages/ProductPage/ProductPage";
+import Cart from "./pages/Cart/Cart";
+import { useState, useEffect } from "react";
+import { getDeviceType } from './utils/checkDevice'
+import SideNav from './components/SideNav/SideNav'
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import Header from "./components/Header/Header";
 
 function App() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const device = getDeviceType()
+    if(device == "mobile") {
+        setIsMobile(true)
+    }
+    else if(device == "tablet") {
+        setIsMobile(true)
+    }
+    else {
+        setIsMobile(false)
+    }
+    
+    window.addEventListener('resize', () => {
+        const device = getDeviceType()
+        if(device == "mobile") {
+            setIsMobile(true)
+        }
+        else if(device == "tablet") {
+            setIsMobile(true)
+        }
+        else {
+            setIsMobile(false)
+        }
+    })
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} alt="mockBee logo" width="180" height="180" />
-        <h1 className="brand-title">
-          Welcome to <span>mockBee!</span>
-        </h1>
-        <p className="brand-description">
-          Get started by editing <code>src/App.js</code>
-        </p>
-        <div className="links">
-          <a
-            href="https://mockbee.netlify.app/"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Explore mockBee
-          </a>
-          <a
-            href="https://mockbee.netlify.app/docs/api/introduction"
-            target="_blank"
-            rel="noreferrer"
-          >
-            API Documentation
-          </a>
-          <a
-            href="https://github.com/neogcamp/mockBee"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Contribute
-          </a>
-        </div>
-      </header>
+      <Header />
+
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/products" element={<ProductPage />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/mock-api" element={<Mockman />} />
+      </Routes>
     </div>
   );
 }
 
-export default App;
+export default App; 

@@ -1,0 +1,146 @@
+
+.login-main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(245, 245, 243, 0.87);
+}
+
+.login-container {
+    width: 90%;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 2px 2px 15px rgb(133, 133, 133);
+}
+
+.center-div-1 {
+    display: flex;
+    justify-content: center;
+}
+
+.remember_me {
+    /* border: 1px solid red; */
+    width: 90%; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember_me--div {
+    /* border: 1px solid green; */
+    width: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.login-btn {
+    width: 90%; 
+    height: 5vh; 
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #009FFD;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.mr-2 {
+    margin-bottom: 1.5em;
+}
+
+@media (min-width: 320px) {    
+    @media (max-height: 700px) {
+        .login-container {
+            height: 70vh;
+        }
+    }
+    
+    @media (max-height: 600px) {
+        .login-container {
+            height: 80vh;
+        }
+
+        .remember_me {
+            flex-direction: column;
+        }
+    }
+    
+}
+
+@media (width: 280px) and (height: 653px) {
+    .login-container {
+        height: 70vh;
+    }
+
+    .remember_me {
+        flex-direction: column;
+    }
+
+}
+
+/* Styles for tabs */
+@media (min-width: 500px) {
+    .login-container {
+        width: 70%;
+        height: 60vh;
+    }
+}
+
+@media (min-width: 768px) {
+    .login-container {
+        width: 70%;
+        height: 47vh;
+    }
+
+    .remember_me--div {
+        width: 110px;
+    }
+}
+
+
+/* Styles for laptops and up */
+@media screen and (min-width: 1024px) {
+    .login-container{
+        width: 30%;
+        height: 54vh;
+    }
+
+    .remember_me--div {
+        width: 125px;
+    }
+
+    @media (max-height: 600px) {
+        .login-container{
+            width: 40%;
+            height: 90vh;
+        }
+    }
+}
+
+@media screen and (min-width: 1024px) and (height: 1366px) {
+    .login-container{
+        width: 70%;
+        height: 38vh;
+    }
+
+    .remember_me--div {
+        width: 125px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .login-container{
+        height: 60vh;
+    }
+    @media (max-height: 800px) {
+        .login-container{
+            width: 30%;
+            height: 70vh;
+        }
+    }
+}

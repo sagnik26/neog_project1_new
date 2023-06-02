@@ -1,0 +1,248 @@
+.LandingPage_conatainer {
+    height: 90vh;
+}
+
+.header {
+    width: 100%;
+    height: 100px;
+    background-color: #2874f0;
+    position: sticky;
+    top: 0;
+}
+
+.header_main {
+    /* border: 1px solid rebeccapurple; */
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    /* border: 1px solid red; */
+    width: 110px;
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-left: 10px;
+}
+
+.cart_conatiner {
+    /* border: 1px solid red; */
+    width: 180px;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 15px;
+}
+
+.search {
+    /* border: 1px solid red; */
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.searchbox {
+    width: 95%;
+    height: 5vh;
+    border: 15px;
+    border-radius: 5px;
+    padding-left: 3em;
+}
+
+.categories-container {
+    /* border: 1px solid red; */
+    margin: 1.1em auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* overflow-y: scroll; */
+
+}
+
+.categories {
+    width: 95%;
+}
+
+.center-cards_collection {
+    /* border: 1px solid green; */
+    display: flex;
+    justify-content: center;
+}
+
+.cards_collection {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer {
+    /* border: 1px solid white;  */
+    width: 95%; 
+    height: 5vh; 
+    display: flex; 
+    justify-content: space-around;
+    align-items: center;
+}
+
+.icon-holder {
+    /* border: 1px solid salmon; */
+    width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.connect {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+}
+
+.icons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 760px)  {
+    @media (max-height: 915px) {
+        .header {
+            height: 120px;
+        }
+    }
+
+    @media (max-height: 800px) {
+        .header {
+            height: 110px;
+        }
+    }
+
+    @media (max-height: 640px) {
+        .header {
+            height: 100px;
+        }
+    }
+}
+
+/* Styles for tablets */
+@media (min-width: 768px) {
+    .header {
+        height: 155px;
+    }
+
+    .searchbox {
+        width: 97%;
+    }
+
+    .categories {
+        width: 97%;
+    }
+
+    .connect {
+        font-size: 1.1rem;
+        margin-bottom: 0.9rem;
+    }
+}
+
+@media (min-width: 768px) and (min-height: 1024px) {
+    .header {
+        height: 140px;
+    }
+}
+
+/* For laptops and up */
+@media (min-width: 1024px) {
+    .header {
+        height: 65px;
+    }
+
+    .search_desktop {
+        width: 40%;
+        display: flex;
+        align-items: center;
+    }
+
+    .searchbox_desktop {
+        height: 35px;
+        width: 100%;
+        border-radius: 5px;
+        border: none;
+        padding-left: 3em;
+    }
+
+    .categories {
+        width: 99%;
+    }
+
+    .cards {
+        width: 70%;
+    }
+
+    .center-cards {
+        display: flex;
+        justify-content: center;
+        border: 1px solid white;
+        box-shadow: 0px 5px 5px rgb(168, 168, 168);
+        height: 250px;
+    }
+}
+
+/* iPad Pro */
+@media (width: 1024px) and (height: 1366px) {
+    .header {
+        height: 165px;
+    }
+
+    .categories {
+        width: 97%;
+    }
+}
+
+/* Nest Hub */
+@media (width: 1024px) and (height: 600px) {
+    .header {
+        height: 125px;
+    }
+
+    .categories {
+        width: 97%;
+    }
+
+    .connect {
+        font-size: 1.05rem;
+        margin-bottom: 0.3rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .cards {
+        width: 60%;
+    }
+
+    .center-cards {
+        height: 290px;
+    }
+
+    .footer {
+        width: 98%;
+    }
+}
+
+@media (min-width: 1500px) {
+    .center-cards {
+        height: 300px;
+    }
+
+    .connect {
+        font-size: 1.2rem;
+    }
+}
