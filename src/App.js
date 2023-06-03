@@ -8,10 +8,8 @@ import ProductPage from "./pages/ProductPage/ProductPage";
 import Cart from "./pages/Cart/Cart";
 import { useState, useEffect } from "react";
 import { getDeviceType } from './utils/checkDevice'
-import SideNav from './components/SideNav/SideNav'
-import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import Header from "./components/Header/Header";
+import { RequiresAuth } from "./utils/RequiresAuth";
 
 function App() {
   const [isMobile, setIsMobile] = useState(false)
@@ -51,7 +49,15 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/products" element={<ProductPage />} />
-        <Route path="/cart" element={<Cart />} />
+        <Route 
+          path="/cart" 
+          element={
+            // <RequiresAuth>
+            //   <Cart />
+            // </RequiresAuth>
+            <Cart />
+          } 
+        />
         <Route path="/mock-api" element={<Mockman />} />
       </Routes>
     </div>

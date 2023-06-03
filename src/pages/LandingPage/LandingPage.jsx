@@ -10,10 +10,12 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import { useNavigate } from 'react-router-dom';
 
 const LandingPage = () => {
   const [isMobile, setIsMobile] = useState(false)
   const [products, setProducts] = useState([])
+  const navigate = useNavigate()
 
   useEffect(() => {
     const device = getDeviceType()
@@ -48,6 +50,10 @@ const LandingPage = () => {
     })
   }, [])
 
+  const categoryHandler = () => {
+    navigate('/products')
+  }
+
   console.log('after', products)
 
   return (
@@ -60,14 +66,17 @@ const LandingPage = () => {
               <CategoryCard 
                 image={men}
                 label={"Men's"}
+                categoryHandler={categoryHandler}
               />
               <CategoryCard 
                 image={women}
                 label={"Women's"}
+                categoryHandler={categoryHandler}
               />
               <CategoryCard 
                 image={kid}
                 label={"Kid's"}
+                categoryHandler={categoryHandler}
               />
             </div>
           </div>
@@ -89,6 +98,7 @@ const LandingPage = () => {
                   return (
                     <CollectionCard 
                       image={val.image}
+                      collectionCardHandler={categoryHandler}
                     /> 
                 )})
               }
@@ -113,6 +123,7 @@ const LandingPage = () => {
                   return (
                     <CollectionCard 
                       image={val.image}
+                      collectionCardHandler={categoryHandler}
                     /> 
                 )})
               }

@@ -1,11 +1,16 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect,useContext} from 'react'
 import './ProductPage.css'
 import { getAllProductsAPI } from '../../apis/productAPI'
+import { addToCartApi } from '../../apis/cartAPI'
 import ProductCard from '../../components/ProductCard/ProductCard'
+import {AuthContext} from '../../contexts/AuthContext'
+import { useNavigate } from 'react-router-dom'
 
 const ProductPage = () => {
   const [products, setProducts] = useState([])
   const [productArrLength, setProductArrLength] = useState(0)
+  const {isLoggedIn, setIsLoggedIn} = useContext(AuthContext)
+  const navigate = useNavigate()
 
   useEffect(() => {
     getAllProductsAPI((res) => {
@@ -14,6 +19,15 @@ const ProductPage = () => {
         setProductArrLength(res.length)
     })
   }, [])
+
+  const addToCartHandler = (_id, title, author, price, categoryName) => {
+    if(!isLoggedIn) 
+      navigate('/login')
+    else
+      addToCartApi({ _id: _id, title: title, author: author, price: price, categoryName: categoryName }, (res) => {
+        console.log('cart res', res)
+      })
+  }
 
   return (
     <>
@@ -31,6 +45,7 @@ const ProductPage = () => {
                                 image={val.image}
                                 name={val.title}
                                 price={val.price}
+                                addToCart={() => addToCartHandler(val._id, val.title, localStorage.getItem('name'), val.price, val.category)}
                             />
                         )
                     })
@@ -49,6 +64,7 @@ const ProductPage = () => {
                             image={val.image}
                             name={val.title}
                             price={val.price}
+                            addToCart={() => addToCartHandler(val._id, val.title, localStorage.getItem('name'), val.price, val.category)}
                         />
                     )
                 })

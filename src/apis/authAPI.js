@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const loginApi = (params) => {
+const loginApi = (params, cb) => {
     const {email, password} = params
 
     const details = {
@@ -12,12 +12,17 @@ const loginApi = (params) => {
         axios.post('/api/auth/login', JSON.stringify(details))
         .then(res => res.data)
         .then(val => {
-            console.log('Token -> ',val.encodedToken);  
+            console.log('Token -> ',val);  
+            cb(val)
             localStorage.setItem('encodedToken', val.encodedToken)
+            localStorage.setItem('name', val.foundUser.firstName + " " + val.foundUser.lastName)
+        })
+        .catch(err => {
+            cb(err.response.data.errors[0])
         })
     }
     catch(error) {
-        console.log(error.message)
+        console.log('err_msg: ', error.message)
     }
 }
 

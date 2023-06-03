@@ -7,10 +7,12 @@ import CartItem from '../../components/CartItem/CartItem'
 const Cart = () => {
   const [cartData, setCartData] = useState([])
 
-  useEffect((res) => {
-    console.log('RES -> ', res)
-    setCartData([res, ...cartData])
-  })
+  useEffect(() => {
+    getCartDataApi(res => {
+      console.log('RES -> ', res)
+      setCartData(res)
+    })
+  },[])
 
   console.log('CART_DATA', cartData)
   
@@ -19,7 +21,16 @@ const Cart = () => {
       <h2 style={{ border: '1px solid red' }}>MY CART ()</h2>
       <div className="cart-conatiner">
         <div className="cart_products">
-          cart products
+          {
+            cartData.map(val => {
+              return (
+                <CartItem 
+                  product_name={val.title} 
+                  product_price={val.price} 
+                />
+              )
+            })
+          }
         </div>
 
         <div className="checkout">

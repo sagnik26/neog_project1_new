@@ -32,19 +32,23 @@
 
 .cart-name {
     font-weight: 600;
+    text-align: left;
 }
 
 .cart-marginBottom {
-    margin-bottom: 0.7em;
+    margin-bottom: 0.5em;
 }
 
 .cart-price {
     font-weight: bolder;
+    text-align: left;
 }
 
 .cart-offer {
     font-weight: bold;
     color: rgb(175, 173, 173);
+    text-align: left;
+    margin-bottom: 0.2em;
 }
 
 .cart-quantity {
@@ -177,3 +181,11 @@
         height: 18px;
     }
 }
+
+@media (min-width: 1280px) {
+    .cartItem-card {
+        width: 550px;
+        height: 320px;
+    }
+}
+
