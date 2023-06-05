@@ -16,7 +16,7 @@ function getCartDataApi(cb) {
 }
 
 function addToCartApi(params,cb) {
-    const { _id, title, author, price, categoryName } = params
+    const { _id, title, author, price, categoryName, stars, offer, image } = params
 
     const cart = {
         product: {
@@ -24,7 +24,10 @@ function addToCartApi(params,cb) {
             title: title,
             author: author,
             price: price,
-            categoryName: categoryName
+            categoryName: categoryName,
+            stars: stars,
+            offer: offer,
+            image: image,
         }
     }
 
@@ -42,21 +45,13 @@ function addToCartApi(params,cb) {
     }
 }
 
-function deleteFromCartApi(param,cb) {
-    let productId = param
-    try {
-        axios.delete('/api/user/cart/productId', {
-            "headers": {
-                'authorization': localStorage.getItem('encodedToken')
-            }
-        })
-        .then(res => cb(res))
-        .catch(err => cb(err))
-    }
-    catch(error) {
-        cb(error)
-    }
-}
+const deleteCartItem = async ({ productId, encodedToken }) => {
+    return axios.delete(`/api/user/cart/${productId}`, {
+      headers: {
+        authorization: encodedToken,
+      },
+    });
+  };
 
 
-export {getCartDataApi, addToCartApi, deleteFromCartApi}
+export {getCartDataApi, addToCartApi, deleteCartItem}

@@ -8,7 +8,7 @@ const CartItem = ({ image, product_name, product_price, product_offer }) => {
   return (
     <div className='cartItem-card'>
       <div className="cart_image">
-        <img className='cart_image--style' src={one} alt="No image found" />
+        <img className='cart_image--style' src={image} alt="No image found" />
       </div>
 
       <div className="cart_details">

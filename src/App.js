@@ -6,6 +6,7 @@ import Signup from "./pages/Signup/Signup";
 import LandingPage from "./pages/LandingPage/LandingPage";
 import ProductPage from "./pages/ProductPage/ProductPage";
 import Cart from "./pages/Cart/Cart";
+import Wishlist from "./pages/Wishlist/Wishlist";
 import { useState, useEffect } from "react";
 import { getDeviceType } from './utils/checkDevice'
 import Header from "./components/Header/Header";
@@ -52,12 +53,12 @@ function App() {
         <Route 
           path="/cart" 
           element={
-            // <RequiresAuth>
-            //   <Cart />
-            // </RequiresAuth>
-            <Cart />
+            <RequiresAuth>
+              <Cart />
+            </RequiresAuth>
           } 
         />
+        <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/mock-api" element={<Mockman />} />
       </Routes>
     </div>

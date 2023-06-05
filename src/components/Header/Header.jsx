@@ -72,7 +72,7 @@ const Header = () => {
                 {isMobile? <ShoppingCartCheckoutIcon fontSize='small' onClick={() => navigate('/cart')} />: <ShoppingCartCheckoutIcon onClick={() => navigate('/cart')} />}
             </div> 
             <div style={{ color: '#ffffff' }}>
-                {isMobile? <FavoriteBorderIcon fontSize='small' />: <FavoriteBorderIcon />}
+                {isMobile? <FavoriteBorderIcon fontSize='small' onClick={() => navigate('/wishlist')} />: <FavoriteBorderIcon onClick={() => navigate('/wishlist')} />}
             </div>
             <div>
                 <p style={{ color: '#ffffff', marginTop: '-1.2px', cursor: 'pointer' }} onClick={goToLogin}>
