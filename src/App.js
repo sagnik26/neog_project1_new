@@ -58,7 +58,14 @@ function App() {
             </RequiresAuth>
           } 
         />
-        <Route path="/wishlist" element={<Wishlist />} />
+        <Route 
+          path="/wishlist" 
+          element={
+            <RequiresAuth>
+              <Wishlist />
+            </RequiresAuth>
+        } 
+        />
         <Route path="/mock-api" element={<Mockman />} />
       </Routes>
     </div>
