@@ -11,11 +11,14 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const LandingPage = () => {
   const [isMobile, setIsMobile] = useState(false)
   const [products, setProducts] = useState([])
   const navigate = useNavigate()
+  const { isLoggedIn } = useContext(AuthContext)
 
   useEffect(() => {
     const device = getDeviceType()
@@ -49,6 +52,13 @@ const LandingPage = () => {
       setProducts(res)
     })
   }, [])
+
+  useEffect(() => {
+    getAllProductsAPI(res => {
+      console.log('PRODUCTS -> ',res)
+      setProducts(res)
+    })
+  }, [isLoggedIn])
 
   const categoryHandler = () => {
     navigate('/products')

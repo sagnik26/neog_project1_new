@@ -5,6 +5,7 @@ import { getDeviceType } from '../../utils/checkDevice'
 import SideNav from '../SideNav/SideNav';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import SearchIcon from '@mui/icons-material/Search';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 
@@ -38,7 +39,7 @@ const Header = () => {
         }
     })
   }, [])
-
+  
   const goToLogin = () => {
     if(!isLoggedIn) {
       navigate('/login')
@@ -64,6 +65,7 @@ const Header = () => {
           { !isMobile ?  (
             <div className="search_desktop">
                 <input type='search' className='searchbox_desktop' placeholder='Search for products'/>
+                <SearchIcon style={{ position: 'absolute', marginLeft: '0.3em' }} />
             </div>
           ) : null}
     
