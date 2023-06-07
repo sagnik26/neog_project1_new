@@ -9,12 +9,11 @@ import { useNavigate } from 'react-router-dom'
 import { deleteWishlistItem } from '../../apis/wishListApi'
 
 const ProductPage = () => {
-  const [products, setProducts] = useState([])
   const [productsTwo, setProductsTwo] = useState([])
   const [productsThree, setProductsThree] = useState([])
   const [productsFour, setProductsFour] = useState([])
   const [productArrLength, setProductArrLength] = useState(0)
-  const {isLoggedIn, isWish, setIsWish} = useContext(AuthContext)
+  const {isLoggedIn, isWish, setIsWish, products, setProducts} = useContext(AuthContext)
   const navigate = useNavigate()
 
   const [priceVal, setPriceVal] = useState(500)
@@ -239,6 +238,9 @@ const ProductPage = () => {
                             />
                         )
                     })
+                }
+                {
+                  products.length == 0 && <p>No products found</p>
                 }
             </div>
           </div>
